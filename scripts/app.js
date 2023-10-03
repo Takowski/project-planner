@@ -62,7 +62,7 @@ cardForm.addEventListener('submit', event => {
 
     const formData = new FormData(cardForm);
     const card = Object.fromEntries(formData.entries());
-
+// mini ruleset for the form to avoid empty title and past due date
     if (card.title.trim() === '') {
         alert('Please enter a title.');
         return;
