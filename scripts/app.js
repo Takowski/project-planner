@@ -1,4 +1,3 @@
-// Declarations for HTML elements
 const cardForm = document.getElementById('card-form');
 const todoContainer = document.getElementById('todo-container');
 const doingContainer = document.getElementById('doing-container');
@@ -26,12 +25,18 @@ function displayStoredCards() {
         const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
         const cardHTML = `
-            <div class="card">
+            <div class="card" data-title="${card.title}">
                 <h2>${card.title}</h2>
                 <p>${card.description}</p>
                 <p>Due Date: ${card.dueDate}</p>
                 <p>time left: ${daysLeft}</p>
-                <p>status: ${card.status}</p>
+                <p>Status: 
+                    <select name="status" class="changeStatus">
+                        <option value="todo" ${card.status === 'todo' ? 'selected' : ''}>To Do</option>
+                        <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
+                        <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
+                    </select>
+                </p>
             </div>
         `;
 
@@ -49,6 +54,47 @@ function displayStoredCards() {
                 break;
         }
     });
+
+    // Add event listeners to the select elements for changing the status
+    const changeStatusSelects = document.querySelectorAll('.changeStatus');
+    changeStatusSelects.forEach(select => {
+        select.addEventListener('change', changeStatus);
+    });
+}
+
+// Function to handle status change
+function changeStatus(event) {
+    const selectedOption = event.target.value;
+    const card = event.target.closest('.card');
+    const cardTitle = card.getAttribute('data-title');
+
+    // Remove the card from its current container
+    switch (selectedOption) {
+        case 'todo':
+            todoContainer.appendChild(card);
+            break;
+        case 'doing':
+            doingContainer.appendChild(card);
+            break;
+        case 'done':
+            doneContainer.appendChild(card);
+            break;
+        default:
+            break;
+    }
+
+    // Update the card's status in local storage
+    updateCardStatusInStorage(cardTitle, selectedOption);
+}
+
+// Function to update card status in local storage
+function updateCardStatusInStorage(title, status) {
+    const cards = getCards();
+    const cardIndex = cards.findIndex(card => card.title === title);
+    if (cardIndex !== -1) {
+        cards[cardIndex].status = status;
+        localStorage.setItem('cards', JSON.stringify(cards));
+    }
 }
 
 // Load and display existing cards on page load
@@ -72,31 +118,31 @@ cardForm.addEventListener('submit', event => {
     const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
     const cardHTML = `
-        <div class="card">
+        <div class="card" data-title="${card.title}">
             <h2>${card.title}</h2>
             <p>${card.description}</p>
             <p>Due Date: ${card.dueDate}</p>
             <p>time left: ${daysLeft}</p>
-            <p>status: ${card.status}</p>
+            <p>Status: 
+                <select name="status" class="changeStatus">
+                    <option value="todo" selected>To Do</option>
+                    <option value="doing">Doing</option>
+                    <option value="done">Done</option>
+                </select>
+            </p>
         </div>
     `;
 
-    switch (card.status) {
-        case 'todo':
-            todoContainer.insertAdjacentHTML('beforeend', cardHTML);
-            break;
-        case 'doing':
-            doingContainer.insertAdjacentHTML('beforeend', cardHTML);
-            break;
-        case 'done':
-            doneContainer.insertAdjacentHTML('beforeend', cardHTML);
-            break;
-        default:
-            break;
-    }
+    // Insert the new card into the "To Do" container
+    todoContainer.insertAdjacentHTML('beforeend', cardHTML);
+
+    // Add an event listener to the new card's select element for status change
+    const newCardSelect = todoContainer.lastElementChild.querySelector('.changeStatus');
+    newCardSelect.addEventListener('change', changeStatus);
 
     cardForm.reset();
 });
+
 
 
 
