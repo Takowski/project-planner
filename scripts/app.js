@@ -1,15 +1,72 @@
-// creating new items
+// Declarations for HTML elements
 const cardForm = document.getElementById('card-form');
 const todoContainer = document.getElementById('todo-container');
 const doingContainer = document.getElementById('doing-container');
 const doneContainer = document.getElementById('done-container');
 
+// Function to add a new card to the array of cards and update local storage
+function addCard(card) {
+    const cards = getCards();
+    cards.push(card);
+    localStorage.setItem('cards', JSON.stringify(cards));
+}
+
+// Function to retrieve all cards from local storage
+function getCards() {
+    return JSON.parse(localStorage.getItem('cards')) || [];
+}
+
+// Function to display only the stored cards on page load
+function displayStoredCards() {
+    const cards = getCards();
+
+    cards.forEach(card => {
+        const dueDate = new Date(card.dueDate);
+        const timeLeft = dueDate.getTime() - Date.now();
+        const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
+
+        const cardHTML = `
+            <div class="card">
+                <h2>${card.title}</h2>
+                <p>${card.description}</p>
+                <p>Due Date: ${card.dueDate}</p>
+                <p>time left: ${daysLeft}</p>
+                <p>status: ${card.status}</p>
+            </div>
+        `;
+
+        switch (card.status) {
+            case 'todo':
+                todoContainer.insertAdjacentHTML('beforeend', cardHTML);
+                break;
+            case 'doing':
+                doingContainer.insertAdjacentHTML('beforeend', cardHTML);
+                break;
+            case 'done':
+                doneContainer.insertAdjacentHTML('beforeend', cardHTML);
+                break;
+            default:
+                break;
+        }
+    });
+}
+
+// Load and display existing cards on page load
+window.addEventListener('load', () => {
+    displayStoredCards();
+});
+
+// Update the cardForm event listener to call addCard and display only the new card
 cardForm.addEventListener('submit', event => {
     event.preventDefault();
-    
+
     const formData = new FormData(cardForm);
     const card = Object.fromEntries(formData.entries());
 
+    // Call the function to add the new card to the array and update local storage
+    addCard(card);
+
+    // Display only the newly added card
     const dueDate = new Date(card.dueDate);
     const timeLeft = dueDate.getTime() - Date.now();
     const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
@@ -21,27 +78,26 @@ cardForm.addEventListener('submit', event => {
             <p>Due Date: ${card.dueDate}</p>
             <p>time left: ${daysLeft}</p>
             <p>status: ${card.status}</p>
-            
         </div>
     `;
-    
+
     switch (card.status) {
         case 'todo':
-        todoContainer.insertAdjacentHTML('beforeend', cardHTML);
-        break;
+            todoContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
         case 'doing':
-        doingContainer.insertAdjacentHTML('beforeend', cardHTML);
-        break;
+            doingContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
         case 'done':
-        doneContainer.insertAdjacentHTML('beforeend', cardHTML);
-        break;
+            doneContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
         default:
-        break;
+            break;
     }
-    
 
     cardForm.reset();
 });
+
 
 
 // Sorting items by name & value 
