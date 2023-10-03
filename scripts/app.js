@@ -63,6 +63,23 @@ cardForm.addEventListener('submit', event => {
     const formData = new FormData(cardForm);
     const card = Object.fromEntries(formData.entries());
 
+    if (card.title.trim() === '') {
+        alert('Please enter a title.');
+        return;
+    }
+
+    if (card.dueDate.trim() === '') {
+        alert('Please enter a due date.');
+        return;
+    }
+
+    const due_date = new Date(card.dueDate);
+
+    if (due_date.getTime() < Date.now()) {
+        alert('Please choose a future date.');
+        return;
+    }
+
     // Call the function to add the new card to the array and update local storage
     addCard(card);
 
