@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="scripts/app.js"></script>
+    <title>Project Manager</title>
+</head>
+<body>
+    <header id="header" class="">
+
+        <H1>Project Manager</H1>
+
+    </header>
+    <main>
+        <div class="container-addCard">
+            <section>
+                <div class="add-card">
+                    <form id="card-form">
+                        <label for="title-input">Title:</label>
+                        <input type="text" id="title-input" name="title">
+                        <label for="description-input">Description:</label>
+                        <input type="text" id="description-input" name="description">
+                        <label for="due-date-input">Due Date:</label>
+                        <input type="date" id="due-date-input" name="dueDate">
+                        <label for="status-input">Status:</label>
+                        <select id="status-input" name="status">
+                            <option value="todo">To Do</option>
+                            <option value="doing">Doing</option>
+                            <option value="done">Done</option>
+                        </select>
+                        
+                        <button type="submit">Create Card</button>
+                </div>
+    
+            </section>
+            
+        </div>
+        <div class="container-storeCard">
+            <section name="todo"> 
+                <h2>To Do : </h2>
+            </section>
+            <section name='doing'>
+                <h2>Doing :</h2>
+            </section>
+            <section name="done">
+                <h2>Done :</h2>
+            </section>
+
+        </div>
+        
+       
+    </main>
+    
+</body>
+</html>
