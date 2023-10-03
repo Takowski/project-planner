@@ -9,9 +9,9 @@
 </head>
 <body>
     <header id="header" class="">
-
+        
         <H1>Project Manager</H1>
-
+        
     </header>
     <main>
         <div class="container-addCard">
@@ -32,26 +32,35 @@
                         </select>
                         
                         <button type="submit">Create Card</button>
+                    </div>
+                    
+                </section>
+                
+            </div>
+            <div class="container-storeCard">
+                <div id="sorting">
+                    <select name="sorting" id="sortingStatus">
+                        <option value="all">All</option>
+                        <option value="todo">To Do</option>
+                        <option value="doing">Doing</option>
+                        <option value="done">Done</option>
+                    </select>
+                    
                 </div>
-    
-            </section>
+                <section id="todo-container" name="todo"> 
+                    <h2>To Do : </h2>
+                </section>
+                <section id="doing-container" name='doing'>
+                    <h2>Doing :</h2>
+                </section>
+                <section id="done-container" name="done">
+                    <h2>Done :</h2>
+                </section>
+                
+            </div>
             
-        </div>
-        <div class="container-storeCard">
-            <section id="todo-container" name="todo"> 
-                <h2>To Do : </h2>
-            </section>
-            <section id="doing-container" name='doing'>
-                <h2>Doing :</h2>
-            </section>
-            <section id="done-container" name="done">
-                <h2>Done :</h2>
-            </section>
-
-        </div>
+            
+        </main>
         
-       
-    </main>
-    
-</body>
-</html>
+    </body>
+    </html>
