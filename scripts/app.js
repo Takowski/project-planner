@@ -39,6 +39,7 @@ cardForm.addEventListener('submit', event => {
         break;
     }
     
+
     cardForm.reset();
 });
 
@@ -82,3 +83,37 @@ sortingList.addEventListener("change", () => {
         
     })
 })
+const selectingList = document.getElementById('selectingStatus');
+const containers = document.querySelectorAll('.container');
+
+selectingList.addEventListener('change', () => {
+    const pickedValue = selectingList.value;
+
+    containers.forEach(container => {
+        const cards = container.querySelectorAll('.card');
+        const sortedCards = Array.from(cards);
+
+        switch (pickedValue) {
+            case 'urgent':
+                sortedCards.sort((a, b) => {
+                    const aTimeLeft = parseInt(a.querySelector('p:nth-child(4)').textContent.split(' ')[2]);
+                    const bTimeLeft = parseInt(b.querySelector('p:nth-child(4)').textContent.split(' ')[2]);
+                    return aTimeLeft - bTimeLeft;
+                });
+                break;
+            case 'alphabetical':
+                sortedCards.sort((a, b) => {
+                    const aTitle = a.querySelector('h2').textContent.toLowerCase();
+                    const bTitle = b.querySelector('h2').textContent.toLowerCase();
+                    return aTitle.localeCompare(bTitle);
+                });
+                break;
+            default:
+                break;
+        }
+
+        sortedCards.forEach(card => container.appendChild(card));
+    });
+});
+
+
