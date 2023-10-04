@@ -147,6 +147,7 @@ cardForm.addEventListener('submit', event => {
                     <option value="done">Done</option>
                 </select>
             </p>
+            <button class="delete-button">Delete</button>
         </div>
     `;
 
@@ -156,6 +157,13 @@ cardForm.addEventListener('submit', event => {
     // Add an event listener to the new card's select element for status change
     const newCardSelect = todoContainer.lastElementChild.querySelector('.changeStatus');
     newCardSelect.addEventListener('change', changeStatus);
+
+    // add an event listener to the new card's delete button
+    const newCardDeleteButton = todoContainer.lastElementChild.querySelector('.delete-button');
+    newCardDeleteButton.addEventListener('click', () => {
+        deleteCard(newCardDeleteButton.closest('.card'));
+    });
+
 
     cardForm.reset();
 });
@@ -235,4 +243,21 @@ selectingList.addEventListener('change', () => {
     });
 });
 
+// Function to delete a card from local storage and the page
+function deleteCard(cardElement) {
+    const cardIndex = findCardIndex(cardElement);
+    const cards = getCards();
+    cards.splice(cardIndex, 1);
+    localStorage.setItem('cards', JSON.stringify(cards));
+    cardElement.remove();
+}
 
+// Function to find the index of a card in the stored cards array
+function findCardIndex(cardElement) {
+    const cards = getCards();
+    const cardTitle = cardElement.querySelector('h2').textContent;
+    const cardDescription = cardElement.querySelector('p:nth-child(2)').textContent;
+    const cardDueDate = cardElement.querySelector('p:nth-child(3)').textContent.split(' ')[2];
+    const cardStatus = cardElement.querySelector('p:nth-child(5)').textContent.split(' ')[1];
+    return cards.findIndex(card => card.title === cardTitle && card.description === cardDescription && card.dueDate === cardDueDate && card.status === cardStatus);
+} 
