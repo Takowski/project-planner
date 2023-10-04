@@ -7,17 +7,17 @@
     <script defer src="scripts/app.js"></script>
     <title>Project Manager</title>
 </head>
-<body class="ring-gray-200">
-    <header id="header" class="">
+<body class="bg-pink-100">
+    <header id="header" class="xs: h-10 m-20">
         
-        <H1>Project Manager</H1>
+        <H1 class="text-center text-4xl text-red-600">Project Manager</H1>
         
     </header>
     <main>
         <div class="container-addCard">
             <section>
-                <div class="add-card">
-                    <form id="card-form">
+                <div class="flex justify-center items-center">
+                    <form id="card-form" class="flex flex-col w-2/5">
                         <label for="title-input">Title:</label>
                         <input type="text" id="title-input" name="title">
                         <label for="description-input">Description:</label>
@@ -37,7 +37,7 @@
                 </section>
                 
             </div>
-            <div class="container-storeCard">
+            <div class="flex justify-evenly">
                 <div id="sorting">
                     <select name="sorting" id="sortingStatus">
                         <option value="all">All</option>

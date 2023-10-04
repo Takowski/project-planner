@@ -36,7 +36,9 @@ function displayStoredCards() {
                         <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
                         <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
                     </select>
-                </p>
+                    </p>
+                    <button class="delete-button">Delete</button>
+                
             </div>
         `;
 
@@ -152,7 +154,19 @@ cardForm.addEventListener('submit', event => {
     `;
 
     // Insert the new card into the "To Do" container
-    todoContainer.insertAdjacentHTML('beforeend', cardHTML);
+    switch (card.status) {
+        case 'todo':
+            todoContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
+        case 'doing':
+            doingContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
+        case 'done':
+            doneContainer.insertAdjacentHTML('beforeend', cardHTML);
+            break;
+        default:
+            break;
+    }
 
     // Add an event listener to the new card's select element for status change
     const newCardSelect = todoContainer.lastElementChild.querySelector('.changeStatus');
