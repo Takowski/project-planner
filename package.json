@@ -4,7 +4,8 @@
   "description": "Wouldn't it be nice to have a tool to manage our projects? Something that would allow us to track the progression of each requirements of our apps.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npx tailwindcss -i ./css/style.css -o ./dist/style.css --watch"
   },
   "repository": {
     "type": "git",

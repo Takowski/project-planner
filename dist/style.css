@@ -538,9 +538,15 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 375px) {
   .container {
-    max-width: 640px;
+    max-width: 375px;
+  }
+}
+
+@media (min-width: 480px) {
+  .container {
+    max-width: 480px;
   }
 }
 
@@ -550,55 +556,75 @@ video {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 976px) {
   .container {
-    max-width: 1024px;
+    max-width: 976px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 1280px;
+    max-width: 1440px;
   }
 }
 
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
+.m-10 {
+  margin: 2.5rem;
 }
 
-.bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
+.m-20 {
+  margin: 5rem;
 }
 
-.bg-red-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
-}
-
-body {
-  background-color: whitesmoke;
-}
-
-.add-card {
+.flex {
   display: flex;
-  justify-content: center;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.w-2\/5 {
+  width: 40%;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
   align-items: center;
 }
 
-.add-card #card-form {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+.justify-center {
+  justify-content: center;
 }
 
-header H1 {
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.bg-pink-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 231 243 / var(--tw-bg-opacity));
+}
+
+.text-center {
   text-align: center;
 }
 
-.container-storeCard {
-  display: flex;
-  justify-content: space-evenly
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+
