@@ -568,20 +568,12 @@ video {
   }
 }
 
-.m-10 {
-  margin: 2.5rem;
-}
-
 .m-20 {
   margin: 5rem;
 }
 
 .flex {
   display: flex;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .h-10 {
