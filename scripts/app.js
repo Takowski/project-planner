@@ -145,8 +145,8 @@ cardForm.addEventListener('submit', event => {
     const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
     const cardHTML = `
-        <div class="card" data-title="${card.title}">
-            <h2>${card.title}</h2>
+        <div class="card- bg-white" data-title="${card.title}">
+            <h2 class="">${card.title}</h2>
             <p>${card.description}</p>
             <p>Due Date: ${card.dueDate}</p>
             <p>time left: ${daysLeft}</p>
