@@ -25,20 +25,21 @@ function displayStoredCards() {
         const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
         const cardHTML = `
-            <div class="card" data-title="${card.title}">
-                <h2>${card.title}</h2>
-                <p>${card.description}</p>
-                <p>Due Date: ${card.dueDate}</p>
-                <p>time left: ${daysLeft}</p>
-                <p>Status: 
+            <div class="card block rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700" data-title="${card.title}">
+                <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">${card.title}</h2>
+                <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">${card.description}</p>
+                <div class="flex justify-center mb-4 space-x-5">
+                <p><i class="fa-solid fa-calendar-days"></i> ${card.dueDate}</p>
+                <p><i class="fa-regular fa-hourglass-half"></i> ${daysLeft}</p>
+                <p><i class="fa-solid fa-arrows-left-right"></i> 
                     <select name="status" class="changeStatus">
                         <option value="todo" ${card.status === 'todo' ? 'selected' : ''}>To Do</option>
                         <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
                         <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
                     </select>
                     </p>
-                    <button class="delete-button">Delete</button>
-                
+                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+                </div>
             </div>
         `;
 
@@ -145,9 +146,9 @@ cardForm.addEventListener('submit', event => {
     const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
     const cardHTML = `
-        <div class="card- bg-white" data-title="${card.title}">
-            <h2 class="">${card.title}</h2>
-            <p>${card.description}</p>
+        <div class="card block rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700" data-title="${card.title}">
+            <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">${card.title}</h2>
+            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">${card.description}</p>
             <p>Due Date: ${card.dueDate}</p>
             <p>time left: ${daysLeft}</p>
             <p>Status: 

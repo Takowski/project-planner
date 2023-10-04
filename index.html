@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/style.css">
     <script defer src="scripts/app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">    
     <title>Project Manager</title>
 </head>
 <body class="bg-blue-100">
@@ -54,17 +55,25 @@
                     </select>    
 
                 </div>
-
-                <section class="container" id="todo-container" name="todo"> 
-                    <h2>To Do : </h2>
-                </section>
-                <section class="container" id="doing-container" name='doing'>
-                    <h2>Doing :</h2>
-                </section>
-                <section class="container" id="done-container" name="done">
-                    <h2>Done :</h2>
-                </section>
+                <div class="ContainerSections flex flex-row justify-center content-start">
+                    <div class="flex flex-col justify-center content-start">
+                        <h2>To Do</h2>
+                        <section class="container flex-col justify-center align-top" id="todo-container" name="todo"> 
+                          </section>
+                    </div>   
+                       
+                    <div class="flex flex-col justify-center align-top">
+                        <h2>Doing</h2>
+                        <section class="container flex-col justify-center align-top" id="doing-container" name='doing'>
+                        </section>
+                    </div>    
+                    <div class="flex flex-col justify-center align-top">
+                        <h2>Done</h2>
+                        <section class="container flex-col justify-center align-top" id="done-container" name="done">
+                        </section>
+                    </div>
                 
+                 
             </div>
             
             
