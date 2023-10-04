@@ -576,10 +576,6 @@ video {
   display: flex;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
 .w-2\/5 {
   width: 40%;
 }
