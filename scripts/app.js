@@ -62,6 +62,14 @@ function displayStoredCards() {
     changeStatusSelects.forEach(select => {
         select.addEventListener('change', changeStatus);
     });
+     // Add event listeners to the delete buttons to delete the corresponding card
+     const deleteButtons = document.querySelectorAll('.delete-button');
+     deleteButtons.forEach(button => {
+         button.addEventListener('click', () => {
+             const cardElement = button.closest('.card');
+             deleteCard(cardElement);
+         });
+     });
 }
 
 // Function to handle status change
