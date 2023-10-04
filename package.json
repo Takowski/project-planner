@@ -1,0 +1,23 @@
+{
+  "name": "project-planner",
+  "version": "1.0.0",
+  "description": "Wouldn't it be nice to have a tool to manage our projects? Something that would allow us to track the progression of each requirements of our apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Takowski/project-planner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Takowski/project-planner/issues"
+  },
+  "homepage": "https://github.com/Takowski/project-planner#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}

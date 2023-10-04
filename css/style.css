@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    background-color: whitesmoke;
+    
+    
+}
+.add-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+
+}
+.add-card #card-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+   
+    
+}
+header H1 {
+    text-align: center;
+}
+
+.container-storeCard {
+    display: flex;
+    justify-content: space-evenly
+}
