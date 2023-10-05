@@ -620,6 +620,10 @@ video {
   flex-basis: 20%;
 }
 
+.basis-1\/4 {
+  flex-basis: 25%;
+}
+
 .flex-row {
   flex-direction: row;
 }
@@ -719,10 +723,6 @@ video {
 
 .text-center {
   text-align: center;
-}
-
-.align-top {
-  vertical-align: top;
 }
 
 .text-3xl {
