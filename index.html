@@ -14,74 +14,78 @@
         <H1 class="text-4xl text-center text-blue-600">Project Manager</H1>
         
     </header>
-    <main>
-        <div class="m-1 container-addCard justify-stretch">
+    <main class ='w-full'>
+        <div class="m-1 container-addCard justify-stretch md:justify-start">
             <section>
-                <div class="flex items-center m-auto h-hvh">
-                    <form id="card-form" class="flex flex-col justify-center w-full p-3 m-auto xs: h-500 sm ">
-                        <div class="flex flex-col justify-center w-full p-3 m-auto bg-white rounded-md">
+                <div class="flex items-center m-auto h-hvh md:items-start">
+                    <form id="card-form" class="flex flex-col justify-center w-full p-3 m-auto xs:h-500 ">
+                        <div class="flex flex-col justify-center w-full p-3 m-auto bg-white rounded-md md:w-3/4">
                             <label for="title-input">Title:</label>
-                        <input type="text" id="title-input" name="title" placeholder = "Title" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                        <label for="description-input">Description:</label>
-                        <input type="text" id="description-input" name="description" placeholder = "Description" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                        <label for="due-date-input">Due Date:</label>
-                        <input type="date" id="due-date-input" name="dueDate" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
-                        <label for="status-input">Status:</label>
-                        <select id="status-input" name="status" placeholder="Status" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <input type="text" id="title-input" name="title" placeholder = "Title" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <label for="description-input">Description:</label>
+                            <input type="text" id="description-input" name="description" placeholder = "Description" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <label for="due-date-input">Due Date:</label>
+                            <input type="date" id="due-date-input" name="dueDate" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <label for="status-input">Status:</label>
+                            <select id="status-input" name="status" placeholder="Status" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                                <option value="todo">To Do</option>
+                                <option value="doing">Doing</option>
+                                <option value="done">Done</option>
+                            </select>
+                            
+                            <button type="submit" class="px-4 py-2 mt-4 font-bold text-white transition duration-150 ease-in-out rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 hover:bg-indigo-600 hover:to-blue-600">Create Card</button>
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </section>
+                
+            </div>
+            <section>
+                <div class="flex justify-evenly">
+                    <div id="sorting" class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                        <select name="sorting" id="sortingStatus">
+                            <option value="all">All</option>
                             <option value="todo">To Do</option>
                             <option value="doing">Doing</option>
                             <option value="done">Done</option>
                         </select>
                         
-                        <button type="submit" class="px-4 py-2 mt-4 font-bold text-white transition duration-150 ease-in-out rounded-md bg-gradient-to-r from-indigo-500 to-blue-500 hover:bg-indigo-600 hover:to-blue-600">Create Card</button>
-                    
-
+                    </div>
+                    <div id="selecting">
+                        <select name="selecting" id="selectingStatus" class ="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                            <option value="urgent">Urgent</option>
+                            <option value="alphabetical">A &#8595 Z</option>
+                        </select>    
+                        
+                    </div>
+                    <div class="flex flex-row content-start justify-center ContainerSections">
+                        <div class="flex flex-col content-start justify-center">
+                            <h2>To Do</h2>
+                            <section class="container flex-col justify-center align-top" id="todo-container" name="todo"> 
+                            </section>
+                        </div>   
+                        
+                        <div class="flex flex-col justify-center align-top">
+                            <h2>Doing</h2>
+                            <section class="container flex-col justify-center align-top" id="doing-container" name='doing'>
+                            </section>
+                        </div>    
+                        <div class="flex flex-col justify-center align-top">
+                            <h2>Done</h2>
+                            <section class="container flex-col justify-center align-top" id="done-container" name="done">
+                            </section>
                         </div>
-                        </div>
+                        
+                        
+                    </div>
                     
                 </section>
                 
-            </div>
-            <div class="flex justify-evenly">
-                <div id="sorting" class=""bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150">
-                    <select name="sorting" id="sortingStatus">
-                        <option value="all">All</option>
-                        <option value="todo">To Do</option>
-                        <option value="doing">Doing</option>
-                        <option value="done">Done</option>
-                    </select>
-                    
-                </div>
-                <div id="selecting">
-                    <select name="selecting" id="selectingStatus" class =""bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150">
-                        <option value="urgent">Urgent</option>
-                        <option value="alphabetical">A &#8595 Z</option>
-                    </select>    
-
-                </div>
-                <div class="ContainerSections flex flex-row justify-center content-start">
-                    <div class="flex flex-col justify-center content-start">
-                        <h2>To Do</h2>
-                        <section class="container flex-col justify-center align-top" id="todo-container" name="todo"> 
-                          </section>
-                    </div>   
-                       
-                    <div class="flex flex-col justify-center align-top">
-                        <h2>Doing</h2>
-                        <section class="container flex-col justify-center align-top" id="doing-container" name='doing'>
-                        </section>
-                    </div>    
-                    <div class="flex flex-col justify-center align-top">
-                        <h2>Done</h2>
-                        <section class="container flex-col justify-center align-top" id="done-container" name="done">
-                        </section>
-                    </div>
                 
-                 
-            </div>
+                
+            </main>
             
-            
-        </main>
-        
-    </body>
-    </html>
+        </body>
+        </html>
