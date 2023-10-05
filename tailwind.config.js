@@ -11,9 +11,14 @@ module.exports = {
     },
     height: {
       hvh: '84vh',
+      77 : '77px',
+      100 : '100px',
       500 : '500px',
       800 : '800px',
-
+      3000 : '3000px',
+    },
+    opacity : {
+      '8': '0.8'
     }
   },
   plugins: [],
