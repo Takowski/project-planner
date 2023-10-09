@@ -25,22 +25,22 @@ function displayStoredCards() {
         const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
         const cardHTML = `
-            <div class="w-350 max-w-350 card block rounded-lg backdrop-blur-lg bg-white/30 text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]" data-title="${card.title}">
-                <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">${card.title}</h2>
-                <p class=" mb-4 text-base max-w-full   text-white">${card.description}</p>
-                <div class="flex justify-center mb-4 space-x-5">
-                <p><i class="fa-solid fa-calendar-days"></i> ${card.dueDate}</p>
-                <p><i class="fa-regular fa-hourglass-half"></i> ${daysLeft}</p>
-                <p><i class="fa-solid fa-arrows-left-right"></i> 
-                    <select name="status" class="changeStatus">
-                        <option value="todo" ${card.status === 'todo' ? 'selected' : ''}>To Do</option>
-                        <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
-                        <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
-                    </select>
-                    </p>
-                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                </div>
-            </div>
+        <div class="w-350 max-w-350 card block rounded-lg backdrop-blur-lg bg-white/30 text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]" data-title="${card.title}">
+        <h2 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">${card.title}</h2>
+        <p class=" mb-4 text-base max-w-full   text-white">${card.description}</p>
+        <div class="flex justify-center mb-4 space-x-5">
+        <p><i class="fa-solid fa-calendar-days text-white"></i> ${card.dueDate}</p>
+        <p><i class="fa-regular fa-hourglass-half text-white"></i> ${daysLeft}</p>
+        <p><i class="fa-solid fa-arrows-left-right text-white"></i> 
+            <select name="status" class="changeStatus">
+                <option value="todo" ${card.status === 'todo' ? 'selected' : ''}>To Do</option>
+                <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
+                <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
+            </select>
+            </p>
+            <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </div>
         `;
 
         switch (card.status) {
@@ -146,20 +146,22 @@ cardForm.addEventListener('submit', event => {
     const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
 
     const cardHTML = `
-        <div class="card block w-350 rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700" data-title="${card.title}">
-            <h2 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">${card.title}</h2>
-            <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">${card.description}</p>
-            <p>Due Date: ${card.dueDate}</p>
-            <p>time left: ${daysLeft}</p>
-            <p>Status: 
-                <select name="status" class="changeStatus">
-                    <option value="todo" selected>To Do</option>
-                    <option value="doing">Doing</option>
-                    <option value="done">Done</option>
-                </select>
-            </p>
-            <button class="delete-button">Delete</button>
-        </div>
+    <div class="w-350 max-w-350 card block rounded-lg backdrop-blur-lg bg-white/30 text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]" data-title="${card.title}">
+    <h2 class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">${card.title}</h2>
+    <p class=" mb-4 text-base max-w-full   text-white">${card.description}</p>
+    <div class="flex justify-center mb-4 space-x-5">
+    <p><i class="fa-solid fa-calendar-days text-white"></i> ${card.dueDate}</p>
+    <p><i class="fa-regular fa-hourglass-half text-white"></i> ${daysLeft}</p>
+    <p><i class="fa-solid fa-arrows-left-right text-white"></i> 
+        <select name="status" class="changeStatus">
+            <option value="todo" ${card.status === 'todo' ? 'selected' : ''}>To Do</option>
+            <option value="doing" ${card.status === 'doing' ? 'selected' : ''}>Doing</option>
+            <option value="done" ${card.status === 'done' ? 'selected' : ''}>Done</option>
+        </select>
+        </p>
+        <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+    </div>
+</div>
     `;
 
     // Insert the new card into the "To Do" container
